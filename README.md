@@ -34,7 +34,7 @@ To set up the project locally, follow these steps:
 
 2. **Installation Instructions:**
 
-   ## Installation Instructions (tested on Ubuntu 22.04)
+   ## Installation Instructions (tested on Windows)
     ---
     The `backend` module is managed by the `poetry` dependency management and packaging tool.
     
