@@ -85,6 +85,22 @@ To set up the project locally, follow these steps:
 
 Once the application is running, you can interact with the API using tools like [Postman](https://www.postman.com/) or [cURL](https://curl.se/).
 
+
+
+5. **Run batch script with hosting API on localhost:**
+
+    (env) C:\> cd backend
+
+    (env) C:\backend> python geli/views/client_sim.py "invoking API"
+
+
+
+6. **Run batch script without hosting API on localhost:**
+
+    (env) C:\> cd backend
+
+    (env) C:\backend> python geli/views/client_sim.py "without invoking API"
+
 ### Example Request
 
 To start a new simulation:
@@ -95,18 +111,7 @@ curl -X POST "http://localhost:8000/simulation/resi/v1/simulationjob" -H "Conten
         \"param1\": \"value1\",
         \"param2\": \"value2\",
         ...
+        input all 7 params for the POST request to Simulation API
     }
 }"
-
-5. **Run batch script with hosting API on localhost:**
-
-    (env) C:\> cd backend
-
-    (env) C:\backend> python geli/views/client_sim.py "invoking API"
-
-6. **Run batch script without hosting API on localhost:**
-
-    (env) C:\> cd backend
-
-    (env) C:\backend> python geli/views/client_sim.py "without_invoking_API"
     
