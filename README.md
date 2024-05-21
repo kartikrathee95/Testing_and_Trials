@@ -8,13 +8,12 @@ Welcome to the Energy Services Simulation API! This documentation lists a set of
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Batch Runs](#batch-runs)
 - [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
-The Energy Services Simulation API allows users to input PV system's design id and check the energy production values, design component specs and losses incurred. The goal is to provide a flexible and scalable solution for energy simulation needs.
+The Energy Services Simulation API allows users to input PV system's design id and check the energy production values, design component specs, and losses incurred. The goal is to provide a flexible and scalable solution for energy simulation needs.
 
 ## Features
 
@@ -34,48 +33,52 @@ To set up the project locally, follow these steps:
 
 2. **Installation Instructions:**
 
-   ## Installation Instructions (tested on Windows)
-    ---
-    The `backend` module is managed by the `poetry` dependency management and packaging tool.
-    
-    On a `Windows` machine, `poetry` is best installed within a virtual environment.
-    
-    With Python 3, a virtual environment can be created as:
-    
-        C:\> python -m venv <path>\<env-name>
+   ### Installation Instructions (tested on Windows)
 
-        
+   The `backend` module is managed by the `poetry` dependency management and packaging tool.
+   
+   On a `Windows` machine, `poetry` is best installed within a virtual environment.
+   
+   With Python 3, a virtual environment can be created as:
+   
+    ```bash
+    C:\> python -m venv <path>\<env-name>
+    ```
+
     The virtual environment can be activated as follows:
     
-        C:\> <path>\<env-name>\Scripts\activate
+    ```bash
+    C:\> <path>\<env-name>\Scripts\activate
+    ```
 
-        
     To deactivate simply execute
     
-        (env) C:\> deactivate
+    ```bash
+    (env) C:\> deactivate
+    ```
 
-    
     Once in an active virtual environment, install `poetry` as follows:
     
-        (env) C:\> <path>\<env-name>\Scripts\pip install -U pip setuptools # update pip and setuptools
-        (env) C:\> <path>\<env-name>\Scripts\pip install poetry
+    ```bash
+    (env) C:\> <path>\<env-name>\Scripts\pip install -U pip setuptools # update pip and setuptools
+    (env) C:\> <path>\<env-name>\Scripts\pip install poetry
+    ```
 
-        
     To install the `backend API dependencies` :
     
-        (env) C:\> cd backend
-        (env) C:\backend> poetry install
-        (env) C:\backend> python3 -m pip install requirements.txt
+    ```bash
+    (env) C:\> cd backend
+    (env) C:\backend> poetry install
+    (env) C:\backend> python3 -m pip install requirements.txt
+    ```
 
-        
     The `backend` and the 'API' comes shipped with unit-tests and integration-tests which can be run by invoking:
     
-        (env) C:\backend> poetry run pytest
+    ```bash
+    (env) C:\backend> poetry run pytest
+    ```
 
-
-
-
-4. **Run the application:**
+3. **Run the application:**
 
     ```cmd
     (env) C:\backend> poetry run geli/views/simulation_api.py
@@ -84,22 +87,6 @@ To set up the project locally, follow these steps:
 ## Usage
 
 Once the application is running, you can interact with the API using tools like [Postman](https://www.postman.com/) or [cURL](https://curl.se/).
-
-
-
-5. **Run batch script with hosting API on localhost:**
-
-    (env) C:\> cd backend
-
-    (env) C:\backend> python geli/views/client_sim.py "invoking API"
-
-
-
-6. **Run batch script without hosting API on localhost:**
-
-    (env) C:\> cd backend
-
-    (env) C:\backend> python geli/views/client_sim.py "without invoking API"
 
 ### Example Request
 
@@ -111,7 +98,30 @@ curl -X POST "http://localhost:8000/simulation/resi/v1/simulationjob" -H "Conten
         \"param1\": \"value1\",
         \"param2\": \"value2\",
         ...
-        input all 7 params for the POST request to Simulation API
+        \"param7\": \"value7\"
     }
 }"
+
+## Batch Runs
+
+- **Run batch script with hosting API on localhost:**
+
+    To run a batch script that hosts the API on localhost, use the following command:
     
+    ```cmd
+    (env) C:\> cd backend
+    (env) C:\backend> python geli/views/client_sim.py "invoking API"
+    ```
+
+- **Run batch script without hosting API on localhost:**
+
+    To run a batch script without hosting the API on localhost, use the following command:
+    
+    ```cmd
+    (env) C:\> cd backend
+    (env) C:\backend> python geli/views/client_sim.py "without invoking API"
+    ```
+
+## API Endpoints
+
+(https://nbmbz5znsb.execute-api.us-west-2.amazonaws.com/dev/simulation/resi/v1/simulationjob)
