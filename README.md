@@ -1,6 +1,6 @@
 # Energy Services Simulation API
 
-Welcome to the Energy Services Simulation API! This project provides a set of RESTful APIs to manage and simulate energy production and storage scenarios.
+Welcome to the Energy Services Simulation API! This documentation lists a set of RESTful APIs to manage and simulate energy production where the backend is designed to interface with NREL's python based SDK, PySAM, for the System Advisory Module (SAM) Photovoltaic module with the intent to compare against Aurora Solar.
 
 ## Table of Contents
 
@@ -14,12 +14,11 @@ Welcome to the Energy Services Simulation API! This project provides a set of RE
 
 ## Overview
 
-The Energy Services Simulation API allows users to submit simulation jobs and check the status and results of these simulations. The goal is to provide a flexible and scalable solution for energy simulation needs.
+The Energy Services Simulation API allows users to input PV System design id and check the energy production values, design component specs and losses incurred. The goal is to provide a flexible and scalable solution for energy simulation needs.
 
 ## Features
 
-- **Simulation Management**: Submit, monitor, and retrieve results for simulation jobs.
-- **Asynchronous Processing**: Efficient handling of simulation tasks using asynchronous programming.
+- **Simulation Management**: Generate and monitor results for simulation jobs.
 - **Detailed Logging and Error Handling**: Comprehensive logging for monitoring and debugging, with robust error handling mechanisms.
 
 ## Installation
@@ -29,22 +28,57 @@ To set up the project locally, follow these steps:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/energy-services-simulation.git
+    git clone https://yourusername@bitbucket.org/gelibitbucket/energy-services-simulation.git
     cd energy-services-simulation
     ```
 
-2. **Install dependencies:**
+2. **Installation Instructions:**
 
-    We use [Poetry](https://python-poetry.org/) for dependency management. If you don't have Poetry installed, you can install it by following the [official guide](https://python-poetry.org/docs/#installation).
+   ## Installation Instructions (tested on Ubuntu 22.04)
+    ---
+    The `backend` module is managed by the `poetry` dependency management and packaging tool.
+    
+    On a `Windows` machine, `poetry` is best installed within a virtual environment.
+    
+    With Python 3, a virtual environment can be created as:
+    
+        C:\> python -m venv <path>\<env-name>
 
-    ```bash
-    poetry install
-    ```
+        
+    The virtual environment can be activated as follows:
+    
+        C:\> <path>\<env-name>\Scripts\activate
 
-3. **Run the application:**
+        
+    To deactivate simply execute
+    
+        (env) C:\> deactivate
 
-    ```bash
-    poetry run uvicorn app.main:app --reload
+    
+    Once in an active virtual environment, install `poetry` as follows:
+    
+        (env) C:\> <path>\<env-name>\Scripts\pip install -U pip setuptools # update pip and setuptools
+        (env) C:\> <path>\<env-name>\Scripts\pip install poetry
+
+        
+    To install the `backend API dependencies` :
+    
+        (env) C:\> cd backend
+        (env) C:\backend> poetry install
+        (env) C:\backend> python3 -m pip install requirements.txt
+
+        
+    The `backend` and the 'API' comes shipped with unit-tests and integration-tests which can be run by invoking:
+    
+        (env) C:\backend> poetry run pytest
+
+
+
+
+4. **Run the application:**
+
+    ```cmd
+    (env) C:\backend> poetry run geli/views/simulation_api.py
     ```
 
 ## Usage
@@ -55,11 +89,11 @@ Once the application is running, you can interact with the API using tools like 
 
 To start a new simulation:
 
-```bash
-curl -X POST "http://127.0.0.1:8000/simulation/start" -H "Content-Type: application/json" -d '{
-    "input_Params": {
-        "param1": "value1",
-        "param2": "value2",
+```cmd
+curl -X POST "http://127.0.0.1:8000/simulation/start" -H "Content-Type: application/json" -d "{`
+    \"input_Params\": {
+        \"param1\": \"value1\",
+        \"param2\": \"value2\",
         ...
     }
-}'
+}"
