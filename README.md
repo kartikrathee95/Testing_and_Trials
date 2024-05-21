@@ -14,7 +14,7 @@ Welcome to the Energy Services Simulation API! This documentation lists a set of
 
 ## Overview
 
-The Energy Services Simulation API allows users to input PV System design id and check the energy production values, design component specs and losses incurred. The goal is to provide a flexible and scalable solution for energy simulation needs.
+The Energy Services Simulation API allows users to input PV system's design id and check the energy production values, design component specs and losses incurred. The goal is to provide a flexible and scalable solution for energy simulation needs.
 
 ## Features
 
@@ -90,7 +90,7 @@ Once the application is running, you can interact with the API using tools like 
 To start a new simulation:
 
 ```cmd
-curl -X POST "http://localhost:8000/simulation/resi/v1/simulationjob" -H "Content-Type: application/json" -d "{`
+curl -X POST "http://localhost:8000/simulation/resi/v1/simulationjob" -H "Content-Type: application/json" -d "{
     \"input_params\": {
         \"param1\": \"value1\",
         \"param2\": \"value2\",
@@ -98,15 +98,15 @@ curl -X POST "http://localhost:8000/simulation/resi/v1/simulationjob" -H "Conten
     }
 }"
 
-4. **Run batch script with hosting API on localhost:**
+5. **Run batch script with hosting API on localhost:**
 
     (env) C:\> cd backend
 
-    (env) C:\backend> python geli/views/client_sim.py
+    (env) C:\backend> python geli/views/client_sim.py "invoking API"
 
-5. **Run batch script without hosting API on localhost:**
+6. **Run batch script without hosting API on localhost:**
 
     (env) C:\> cd backend
 
-    (env) C:\backend> python geli/views/client_sim.py "api_gateway_url"
+    (env) C:\backend> python geli/views/client_sim.py "without_invoking_API"
     
