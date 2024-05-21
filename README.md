@@ -92,7 +92,7 @@ Once the application is running, you can interact with the API using tools like 
 
 To start a new simulation:
 
-```cmd
+ ```cmd
 curl -X POST "http://localhost:8000/simulation/resi/v1/simulationjob" -H "Content-Type: application/json" -d "{
     \"input_params\": {
         \"param1\": \"value1\",
@@ -100,7 +100,8 @@ curl -X POST "http://localhost:8000/simulation/resi/v1/simulationjob" -H "Conten
         ...
         \"param7\": \"value7\"
     }
-}"
+ }"
+ ```
 
 ## Batch Runs
 
