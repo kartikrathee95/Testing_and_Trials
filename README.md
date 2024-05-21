@@ -90,10 +90,23 @@ Once the application is running, you can interact with the API using tools like 
 To start a new simulation:
 
 ```cmd
-curl -X POST "http://127.0.0.1:8000/simulation/start" -H "Content-Type: application/json" -d "{`
-    \"input_Params\": {
+curl -X POST "http://localhost:8000/simulation/resi/v1/simulationjob" -H "Content-Type: application/json" -d "{`
+    \"input_params\": {
         \"param1\": \"value1\",
         \"param2\": \"value2\",
         ...
     }
 }"
+
+4. **Run batch script with hosting API on localhost:**
+
+    (env) C:\> cd backend
+
+    (env) C:\backend> python geli/views/client_sim.py
+
+5. **Run batch script without hosting API on localhost:**
+
+    (env) C:\> cd backend
+
+    (env) C:\backend> python geli/views/client_sim.py "api_gateway_url"
+    
