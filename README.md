@@ -1,6 +1,6 @@
 # Energy Services Simulation API
 
-Welcome to the Energy Services Simulation API! This documentation lists a set of RESTful APIs to manage and simulate energy production where the backend is designed to interface with NREL's python based SDK, PySAM, for the System Advisory Module (SAM) Photovoltaic module with the intent to compare against Aurora Solar.
+Welcome to the Energy Services Simulation API. This documentation lists a set of RESTful APIs to manage and simulate energy production where the backend is designed to interface with NREL's python based SDK, PySAM, for the System Advisory Module (SAM) Photovoltaic module with the intent to compare against Aurora Solar.
 
 ## Table of Contents
 
@@ -72,7 +72,7 @@ To set up the project locally, follow these steps:
     (env) C:\backend> python3 -m pip install requirements.txt
     ```
 
-    The `backend` and the 'API' comes shipped with unit-tests and integration-tests which can be run by invoking:
+    The `backend` and the `API` comes shipped with unit-tests and integration-tests which can be run by invoking:
     
     ```bash
     (env) C:\backend> poetry run pytest
@@ -94,12 +94,13 @@ To start a new simulation:
 
  ```cmd
 curl -X POST "http://localhost:8000/simulation/resi/v1/simulationjob" -H "Content-Type: application/json" -d "{
-    \"input_params\": {
-        \"param1\": \"value1\",
-        \"param2\": \"value2\",
-        ...
-        \"param7\": \"value7\"
-    }
+        \"designVendorName\": \"value1\",
+        \"designID\": \"value2\",
+        \"tenantID\": \"value2\",
+        \"siteID\": \"value2\",
+        \"simulationMode\": \"value2\",
+        \"simulationYears\": \"value2\",
+        \"outputResolution\": \"value7\"
  }"
  ```
 
