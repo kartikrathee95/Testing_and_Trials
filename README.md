@@ -97,10 +97,10 @@ To start a new simulation:
 curl -X POST "http://localhost:8000/simulation/resi/v1/simulationjob" -H "Content-Type: application/json" -d "{
         \"designVendorName\": \"value1\",
         \"designID\": \"value2\",
-        \"tenantID\": \"value2\",
-        \"siteID\": \"value2\",
-        \"simulationMode\": \"value2\",
-        \"simulationYears\": \"value2\",
+        \"tenantID\": \"value3\",
+        \"siteID\": \"value4\",
+        \"simulationMode\": \"value5\",
+        \"simulationYears\": \"value6\",
         \"outputResolution\": \"value7\"
  }"
  ```
